@@ -5,6 +5,7 @@ from rembg import remove
 from PIL import Image
 import io
 import uvicorn
+import os
 
 app = FastAPI(title="Background Remover")
 
@@ -67,4 +68,5 @@ async def remove_bg(file: UploadFile = File(...)):
         )
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=False)
+    port = int(os.getenv("PORT", "8000"))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
