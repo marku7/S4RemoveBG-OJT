@@ -18,7 +18,7 @@ app.add_middleware(
         # "http://[::1]:5173",
         "*"
     ],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
